@@ -1,0 +1,76 @@
+# test cases for is_lat 
+yes: (a b c d e f) 
+no: (a b () d e f)
+no: ( ( a ) ( b c d ) ( ( e ) ) )
+
+# list_pair
+() ()
+(a b c d e f) (a b c d e f) 
+
+# firsts
+(( a c e g i ) ( b d f h j )) 
+
+# flat
+( ( ( ) () ) ( ( ) ) )
+( ( b ) (c d) ( e (f (g))) (h i ))
+( ( ( a b ) ( c d ) ( e ( f ( g ) ) ) ( h i ) ) ( ( j ) ( k l ) ) )
+
+# intersection
+() ( a b c )
+(a b c ) ()
+( a b c d ) ( e f g h )
+( a b c d ) ( e f a )
+
+# union
+() ( a b c )
+(a b c ) ()
+( a b c d ) ( e f g h )
+( a b c d ) ( b a c d ) 
+( a b c d ) ( e f d c a )
+
+# member
+a
+( ( ( a b ) (c d) ( e (f (g))) (h i )) ( ( a b ) (c d) ( e (f (g))) (h i )) )
+a
+( ( ( b ) (c d) ( e (f (g))) (h i )) ( ( b ) (c d) ( e (f (g))) (h i )) )
+m
+( ( ( a b ) ( c d ) ( e ( f ( g ) ) ) ( h i ) ) ( ( a b ) ( c d ) ( e ( f ( g ) ) ) ( h i ) ) )
+
+# Two the same
+
+( ( ( a b ) ( c d e ) ( f ( g ) ) )( ( aa bb ) ( cc ) ( dd ( ee ( ff ) ) ) ( hh ii ) ) )
+( ( ( j k ) ( l ) ) ( m ( n o ) ( p ) ) ( ( q r ) ( s ) ) ( t ( jj kk ) ( ll ( nn ) ( oo ) ) ) )
+
+( ( ( a b ) ( c d e ) ( f ( g ) ) ) ( ( aa bb ) ( cc ) ( dd ( ee ( ff ( zx ) ) ) ) ( hh ii ) ) )
+( ( ( j k ) ( l ) ) ( m ( n o ) ( p ) ) ( ( q r ) ( s ) ) ( t ( jj kk ) ( ll ( nn ( oo ( zx ) ) ) ) ) )
+
+
+# equal -- the first two lists are equal; the second two lists are not.
+( ( ( a b ) (c d) ( e (f (g))) (h i )) ( ( a b ) (c d) ( e (f (g))) (h i )) )
+( ( ( a b ) (c d) ( e (f (g))) (h i )) ( ( a b ) (c d) ( e (f (g))) (h i )) )
+
+( ( ( a b ) (c d) ( e (f (g))) (h i )) ( ( a b ) (c d) ( e (f (g))) (h i )) )
+( ( ( a b ) (c d) ( e (f (g))) (h i )) ( ( a b ) (c d) ( e (f (g))) (h x )) )
+
+# shape
+( ( b ) (c d) ( e (f (g))) (h i ))
+( (  ) () (  ( ())) ( ))
+
+( ( ( b ) (c d) ( e (f (g))) (h i )) ( ( b ) (c d) ( e (f (g))) (h i )) )
+( ( (  ) () (  ( ())) ( )) ( (  ) () (  ( ())) ( )) )
+
+( ( (  ) () (  ( (g))) ( )) ( ( ) () ( ( ())) ( )) )
+( ( (  ) () (  ( ())) ( )) ( ( ) () ( ( ())) ( )) )
+
+( ( ( ( ( ( zx ) oo ) nn ) ll ) ( kk jj ) t ) ( ( s ) ( r q ) ) ( ( p )  ( o n ) m ) ( ( l ) ( k j ) ) )
+( ( ( ( ( (  )  )  )  ) (  )  ) ( (  ) (  ) ) ( (  )  (  )  ) ( (  ) (  ) ) )
+
+
+# total reverse
+
+original: ( ( ( j k ) ( l ) )  ( m ( n o ) ( p ) )  ( ( q r ) ( s ) )  ( t ( jj kk ) ( ll ( nn ( oo ( zx ) ) ) ) ) )
+total reverse: ( ( ( ( ( ( zx ) oo ) nn ) ll ) ( kk jj ) t ) ( ( s ) ( r q ) ) ( ( p )  ( o n ) m ) ( ( l ) ( k j ) ) )
+
+original: ( ( ( a b ) ( c d ) ( e ( f ( g ) ) ) ( h i ) ) ( ( a b ) ( c d ) ( e ( f ( g ) ) ) ( h i ) ) )
+total reverse: ( ( ( i h ) ( ( ( g ) f ) e ) ( d c ) ( b a ) ) ( ( i h ) ( ( ( g ) f )  e ) ( d c ) ( b a ) ) )
+

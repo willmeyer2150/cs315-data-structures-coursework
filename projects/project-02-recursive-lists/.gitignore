@@ -1,0 +1,26 @@
+# CLion
+.idea/
+cmake-build-*/
+
+# CMake (build artifacts)
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+
+# Build outputs
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.log
+
+# macOS
+.DS_Store

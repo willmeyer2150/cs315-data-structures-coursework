@@ -1,0 +1,22 @@
+# Build & CMake
+cmake-build-*/
+build/
+CMakeFiles/
+CMakeCache.txt
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.exe
+*.out
+*.log
+
+# CLion / JetBrains
+.idea/
+
+# macOS
+.DS_Store
+
+# Sanitizers / profiles
+*.profraw

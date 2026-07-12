@@ -1,0 +1,21 @@
+# Build artifacts
+cmake-build-*/
+build/
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+
+# CLion / JetBrains
+.idea/
+*.iml
+
+# macOS cruft
+.DS_Store
+
+# Other
+*.log
+

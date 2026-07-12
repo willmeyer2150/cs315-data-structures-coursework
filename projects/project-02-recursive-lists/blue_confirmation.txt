@@ -1,0 +1,155 @@
+wmeyer@blue:~/proj2/Project_02_reclists_Will_Meyer$ cmake -S . -B build
+-- The C compiler identification is GNU 13.3.1
+-- The CXX compiler identification is GNU 13.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/lib64/ccache/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/lib64/ccache/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (1.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/student/wmeyer/proj2/Project_02_reclists_Will_Meyer/build
+wmeyer@blue:~/proj2/Project_02_reclists_Will_Meyer$ cmake --build build --config Release
+[ 16%] Building CXX object CMakeFiles/reclistsStudentVersion.dir/main.cpp.o
+[ 33%] Building CXX object CMakeFiles/reclistsStudentVersion.dir/lex.cpp.o
+[ 50%] Building CXX object CMakeFiles/reclistsStudentVersion.dir/parser.cpp.o
+[ 66%] Building CXX object CMakeFiles/reclistsStudentVersion.dir/reclists.cpp.o
+[ 83%] Building CXX object CMakeFiles/reclistsStudentVersion.dir/solutions.cpp.o
+[100%] Linking CXX executable reclistsStudentVersion
+[100%] Built target reclistsStudentVersion
+wmeyer@blue:~/proj2/Project_02_reclists_Will_Meyer$ ./build/reclistsStudentVersion
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c )
+The number of nodes at the top level of the input list is: 3
+Enter a list: ^C
+wmeyer@blue:~/proj2/Project_02_reclists_Will_Meyer$ ./build/reclistsStudentVersion
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c )
+The number of nodes at the top level of the input list is: 3
+Enter a list: (a c b)
+Echoing the list that you entered below.
+ ( a c b )
+The list is not entirely made of atoms:
+Enter an atom: a
+Echoing the atom that you entered below.
+ a
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c )
+Atom  a
+ is in list  ( a b c )
+.
+Enter a list: (a b c)
+ ( a b c )
+The last element in the list is:
+ c
+
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c )
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b
+   c )
+The list of pairs from  ( a b c )
+ and  ( a b c )
+ are:
+ ( ( a a ) ( b b ) ( c c ) )
+
+Enter a list: ((a b c))
+Echoing the list that you entered below.
+ ( ( a b c ) )
+The list of first elements in this list are  ( a
+   )
+
+Enter a list: ( a b c)
+Echoing the list that you entered below.
+ ( a b c )
+The flattened list is  ( a b c )
+
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c )
+Enter a list: (e d g)
+ ( e d g )
+The lists do not share any elements.
+Enter a list:
+(a b c)
+Echoing the list that you entered below.
+ ( a b c )
+Enter a list:
+(a b c)
+Echoing the list that you entered below.
+ ( a b c )
+Lists are equal.
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c
+   )
+The total reverse, mirror image of  ( a b c )
+ is:  ( c b a )
+
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c )
+The structure of this list is:  ( () () () )
+
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c )
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c )
+The intersection of list  ( a
+   b c )
+ and  ( a b c )
+ is  ( a b c )
+
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c )
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c )
+The union of list  ( a b c )
+ and  ( a b c )
+ is  ( a
+   b c )
+
+Enter the atom to replace: (a b c)
+Echoing the atom to replace.
+ ( a b c )
+Enter the replacement atom:
+x
+Echoing the atom the new replacement atom.
+ x
+Enter a list:
+(a b c)
+Echoing the list that you entered below.
+ ( a b c )
+The altered list is  ( a b c )
+
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c )
+Enter an atom to remove: a
+Echoing the atom that you entered below.
+ a
+Here is the list with the atom removed:  ( b c )
+
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ ( a b c )
+Enter a list: (a b c)
+Echoing the list that you entered below.
+ (
+   a b c )
+Lists are equal.
+wmeyer@blue:~/proj2/Project_02_reclists_Will_Meyer$ exit

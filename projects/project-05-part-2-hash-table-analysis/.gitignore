@@ -1,0 +1,30 @@
+# macOS junk
+.DS_Store
+
+# CMake build output
+cmake-build-*/
+build/
+out/
+
+# CLion / IDE files
+.idea/
+
+# Ignore ALL trace files (global rule)
+*.trace
+
+# Ignore entire trace directories (belt & suspenders approach)
+traces/
+src/implementations/HashTablesOpenAddressing/traceFiles/
+
+# Ignore giant word list provided by prof
+src/implementations/HashTablesOpenAddressing/20980712_uniq_words.txt
+
+# Object / binary files
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.exe
+
+src/trace-generators/lru_profile/20980712_uniq_words.txt

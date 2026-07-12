@@ -1,0 +1,49 @@
+# === CS315 Huffman Decoder ===
+# Compiled binaries
+*.o
+*.out
+*.exe
+*.x
+
+# Build and debug folders
+/build/
+bin/
+Debug/
+Release/
+
+# IDE project files
+*.user
+*.pro.user*
+*.swp
+*.swo
+*.sln
+*.vcxproj*
+*.DS_Store
+.idea/
+.vscode/
+cmake-build*/
+
+# Temporary and log files
+*.log
+*.tmp
+
+# Input/output working directory
+input_file/*.tokens_decoded
+input_file/*.tokens
+input_file/*.freq
+input_file/*.hdr
+input_file/*.code
+
+# Don’t accidentally upload test files or datasets
+*.txt
+*.csv
+
+# Python scratch files (if using helper scripts)
+__pycache__/
+*.pyc
+
+# macOS metadata
+.DS_Store
+
+!blue_output.txt
+

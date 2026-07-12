@@ -1,0 +1,34 @@
+# macOS and IDE metadata
+.DS_Store
+.idea/
+*.iml
+.clion.source.upload.marker
+.vscode/
+*~
+
+# CMake and compiler output
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+*.o
+*.obj
+*.d
+*.a
+*.so
+*.dylib
+*.exe
+*.out
+*.x
+a.out
+
+# Large, reproducible Project 5 experimental inputs
+*.trace
+20980712_uniq_words.txt
+all_uniq_tokens_imdb_and_newsgroups.txt
+
+# Pre-canonical Project 5 Part 2 working copies retained locally
+projects/HashMapAnalysis_StudentFiles/
+projects/HashMapAnalysis_StudentFiles_Initial_Histogram/
