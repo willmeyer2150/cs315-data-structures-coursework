@@ -1,22 +1,97 @@
-## Student Information
+# Project 1 — Stack-Based Maze Solver
 
-Name: Will Meyer
+**Author:** Will Meyer
 
-## Collaboration & Sources
-This project is the product of my own work. All code and the logic contained in it is mine except where stated below.
-* Person consulted: Regina during office hours (Topics discussed: Proper implementation of std::tuple and std::stack, discussed code logic for start/goal search as well as for the findPath() function. She also clarified how a vector of vectors should be visualized.)
-* Person consulted: Dr. Kosheesh during office hours (Topics discussed: clarified the logic of the findPath() function with the goal of simplifying my code. Recommended approach: Modifying the input grid using a helper function to turn 0's or 1's into 2's or 3's in order to track if a cell has been explored or not.)
-* Website Resources: https://www.geeksforgeeks.org/cpp/tuples-in-c/ (Used to understand tuple implementation)
-* AI Use: Chatgpt (Used for brainstorming search functionality within an input grid. I adapted answers using my own code and logic. I also prompted for information on how to maintain a private git repo for this project which I pushed to throughout. Additionally, I sought out best practice advice for ordering functiions in a header file and for crafting a proper README.md. All code  and logic implementation came from me except for small sections which I had forgotten such as reading an input file, converting ASCII characters to integers and stack printing. Any code suggestions were adapted using my own code.)
+This C++ program reads a maze from a text file and searches for a route between
+its two boundary openings. It uses an explicit stack and iterative backtracking
+to explore the maze. When it finds a route, it prints the maze with the solution
+path marked by red asterisks.
 
-## Iplementation Details
-I followed the project brief instructions and began by reading the inputgrid into the program from a text file. Once I had printed the grid to output, I implemented Maze.h and Maze.cpp.
-* Private variables: the input grid, a stack, and start/goal tuples for the boundary openings. 
-* Public functions: a constructor, two accessors for row/column counts, findPath(), and helper functions findStartGoal, findUnexploredNeighbor, pushNeighbor, checkBounds, and printSolution.
-* Initially, I had almost all the path finding logic hardcoded into a single function called findPath(). After seeking out advice, it became clear that this approach was too complicated and did not work anyway. After much thought and trial and error, I discovered how to delegate specific tasks to helper functions which would perform the task of solving the maze in a much more modular package which is easy to understand and read. In the past, I have struggled with helper functions because tracking where variables were passed seemed complicated, but this project has helped me level up and now I feel more comforatable with that type of coding.
-* Process of Writing Helper Functions: This project has helped me refine my ability to utilize helper functions. 
+See [ASSIGNMENT.md](ASSIGNMENT.md) for a condensed summary of the original
+instructor-provided project brief.
 
-## Testing & Status
-This program has been built and tested using CLion. It does solve a maze using the provided inputfile, maze()-1_input.txt, and it can also solve mazes of other formats when openings are found on the top and bottom. The final output is that of a solved maze with red asterisks in place of the open pathway. I also tested my program with an unsolvable maze and the program successfully outputs that no path can be found.
-* Testing on Blue Server: I compiled and tested my program on blue to confirm functionality per the project instructions.
-* Final implementation: I added support for argv[] so the program can read the maze from a file path passed on the command line. This was new to me, and I used ChatGPT for guidance on setting up the argument handling.
+## Build and Run
+
+The project requires C++20. From this directory, build it with CMake:
+
+```bash
+cmake -S . -B build
+cmake --build build
+./build/CS315_Will_Meyer_Solving_A_Maze_Project maze0-1_input.txt
+```
+
+It can also be compiled directly, matching the original course testing
+environment:
+
+```bash
+mkdir -p build
+g++ -std=c++20 main.cpp Maze.cpp -o build/maze-solver
+./build/maze-solver maze0-1_input.txt
+```
+
+The input must be a rectangular grid containing only `0`s and `1`s, with no
+spaces between cells. A `0` is an open cell and a `1` is a wall. The maze must
+have exactly two openings along its outer boundary.
+
+## Implementation Details
+
+I followed the project brief by first reading the input grid from a text file
+and printing it back to the terminal. Once that worked, I implemented `Maze.h`
+and `Maze.cpp`.
+
+The `Maze` class stores:
+
+- The maze as a two-dimensional vector.
+- A stack that tracks the current path.
+- Row-and-column tuples for the start and goal openings.
+
+Its operations include finding the boundary openings, checking grid bounds,
+finding and pushing unexplored neighbors, searching for a path, and printing
+the solution. Neighbors are considered in the order down, right, up, and left.
+The grid is updated during the search so the program can distinguish unexplored
+cells, the active route, and cells that have already been examined.
+
+Initially, I had almost all the pathfinding logic hardcoded into a single
+`findPath()` function. After seeking advice, it became clear that this approach
+was too complicated and did not work anyway. After much thought, trial, and
+error, I learned how to delegate specific tasks to helper functions. This made
+the maze-solving process much more modular and easier to understand.
+
+In the past, I struggled with helper functions because tracking where variables
+were passed seemed complicated. This project helped me level up and made me
+more comfortable breaking a larger problem into smaller operations.
+
+## Testing and Status
+
+I originally built and tested the program in CLion. It solves the provided
+`maze0-1_input.txt` fixture and can work with other rectangular mazes whose two
+openings occur anywhere on the boundary. The final output shows the solution
+route with red asterisks. I also tested an unsolvable maze, for which the program
+reports that no path was found.
+
+I compiled and tested the project on the course's Blue server to confirm that
+it worked in the required environment. In the final implementation, I added
+support for `argv` so the program can read a maze from a file path supplied on
+the command line. Argument handling was new to me, and I used ChatGPT for
+guidance while setting it up.
+
+## Collaboration and Sources
+
+This project is the product of my own work. All code and logic are mine except
+where described below.
+
+- **Regina, during office hours:** We discussed the use of `std::tuple` and
+  `std::stack`, the start/goal search, the logic of `findPath()`, and how to
+  visualize a vector of vectors.
+- **Dr. Kooshesh, during office hours:** He helped clarify the logic of
+  `findPath()` and suggested simplifying it with helper functions. We discussed
+  marking cells in the input grid with additional values to track whether they
+  had been explored.
+- **GeeksforGeeks:** I consulted its article on
+  [tuples in C++](https://www.geeksforgeeks.org/cpp/tuples-in-c/) to better
+  understand tuple usage.
+- **ChatGPT:** I used ChatGPT to brainstorm grid-search behavior; review syntax
+  I had forgotten, such as file input, ASCII-to-integer conversion, and stack
+  printing; learn how to pass an input path through `argv`; and get advice on
+  repository and README organization. I reviewed and adapted suggestions to fit
+  my own code and logic.
